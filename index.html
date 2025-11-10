@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aman's Portfolio</title>
+  <!-- Optimized Font Loading -->
+  <!-- <link rel="stylesheet" href="style.css"> -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <style>
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      scroll-behavior: smooth;
+    }
+    
+    html, body {
+      height: 100%;
+    }
+    
+    body {
+      background: url('images/bg-img.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+    
+    /*  HEADER STYLES */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 2rem;
+      background-color: #57BDB1;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    #logo a {
+      text-decoration: none;
+      font-size: 26px;
+      font-weight: bold;
+      color: white;
+    }
+    
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+    
+    nav a {
+      text-decoration: none;
+      color: #212529;
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s;
+    }
+    
+    nav a:hover {
+      color: #f9d423;
+    }
+    
+    nav a:hover::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 100%;
+      height: 2px;
+      background: #f9d423;
+    }
+    
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    /* MAIN CONTENT STYLES */
+    main {
+      margin-top: 80px;
+    }
+    
+    .hero-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 2rem;
+      min-height: calc(100vh - 80px);
+    }
+    
+    .hero-left {
+      width: 50%;
+      padding: 2rem;
+    }
+    
+    .hero-left h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #212529;
+    }
+    
+    .hero-left p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      color: #444;
+      line-height: 1.6;
+    }
+    
+    .btn-container {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .know-more-btn, .download-btn {
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      min-width: 150px;
+    }
+    
+    .know-more-btn {
+      background: #36B198;
+      color: #fff;
+    }
+    
+    .download-btn {
+      background: #F2C955;
+      color: #212529;
+    }
+
+    #dwn-rsm {
+      text-decoration: none;
+    }
+    
+    .know-more-btn:hover, .download-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    .social-icons {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    
+    .social-icons a {
+      color: #212529;
+      font-size: 1.8rem;
+      transition: all 0.3s;
+    }
+    
+    .social-icons a:hover {
+      color: #36B198;
+      transform: translateY(-3px);
+    }
+    
+    .hero-right {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .profile-pic {
+      border: 10px solid #F2C955;
+      width: 300px;
+      height: 400px;
+      border-radius: 50% / 40%;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s;
+    }
+    
+    .profile-pic:hover {
+      transform: scale(1.03);
+    }
+    
+    .profile-pic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .divider {
+      width: 100%;
+      height: 2px;
+      background-color: #36B198;
+      margin: 0 auto;
+    }
+    
+    /* ===== SECTION STYLES ===== */
+
+    .all-bg{
+        background-color: #d9eaef;
+    }
+    
+    .section {
+      padding: 4rem 2rem;
+      background-color: rgba(255, 255, 255, 0.9);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .section-title {
+      margin-bottom: 2rem;
+      font-size: 2.5rem;
+      color: #36B198;
+      text-align: center;
+    }
+    
+    /* Skills Section */
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.5rem;
+      width: 100%;
+      max-width: 900px;
+    }
+    
+    .skill-box {
+      /* background: white; */
+      padding: 1.5rem 1rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    
+    .skill-box:hover {
+      transform: translateY(-5px);
+    }
+    
+    .skill-box i {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Certificates Section */
+    .certificate-section {
+      padding: 4rem 2rem;
+      background-color: rgba(255, 255, 255, 0.9);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .certificate-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      width: 100%;
+      max-width: 1200px;
+    }
+    
+    .certificate {
+      background-color: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    /* .certificate:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    } */
+    
+    .certificate-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .certificate-info {
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .certificate-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #2c3e50;
+    }
+    
+    .certificate-date {
+      color: #7f8c8d;
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+    }
+    
+    .view-btn {
+      display: inline-block;
+      padding: 8px 20px;
+      background: #36B198;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+    }
+
+    .download-btn {
+      background-color:#f9d423;
+      color: black;
+    }
+    
+    .view-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+    
+    
+
+    /* To-Do Section */
+    .todo-container {
+      max-width: 600px;
+      width: 100%;
+      /* background: white; */
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    
+    .todo-input {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .todo-input input {
+      flex: 1;
+      padding: 0.8rem 1rem;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 1rem;
+    }
+    
+    .todo-input button {
+      padding: 0.8rem 1.5rem;
+      background: #36B198;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    
+    .todo-list {
+      list-style: none;
+    }
+    
+    .todo-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      margin-bottom: 0.5rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .todo-list button {
+      background: #F2C955;
+      border: none;
+      border-radius: 5px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+    
+    /* Contact Section */
+     .section {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f9f9f9;
+   }
+
+  .section-title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  .contact-text {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 25px;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #0078ff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+
+  .contact-btn:hover {
+    background: #005ec4;
+    transform: translateY(-3px);
+  }
+
+  
+  .linkedin { background: #0077b5; }
+  .github { background: #24292e; }
+  .twitter { background: #1da1f2; }
+
+  .linkedin:hover { background: #005c8d; }
+  .github:hover { background: #111; }
+  .twitter:hover { background: #0d8ddb; }
+
+    /* Footer */
+    footer {
+      background: #212529;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+    }
+    
+    /* ===== RESPONSIVE STYLES ===== */
+    @media (max-width: 1024px) {
+      .hero-left h2 {
+        font-size: 2.2rem;
+      }
+      
+      .profile-pic {
+        width: 280px;
+        height: 380px;
+      }
+      
+      .certificate-gallery {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      header {
+        padding: 1rem;
+      }
+
+      .social-icons {
+      	display: flex;
+      	justify-content: center;
+      }
+      
+      .menu-toggle {
+        display: block;
+      }
+      
+      nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #57BDB1;
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1rem;
+      }
+      
+      nav.active {
+        display: flex;
+      }
+      
+      .hero-section {
+        flex-direction: column;
+        padding: 2rem 1rem;
+      }
+      
+      .hero-left, .hero-right {
+        width: 100%;
+        text-align: center;
+      }
+      
+      .btn-container {
+        justify-content: center;
+      }
+      
+      .profile-pic {
+        margin-top: 2rem;
+        width: 250px;
+        height: 350px;
+      }
+      
+      .section {
+        padding: 3rem 1.5rem;
+      }
+      
+      .certificate-gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      #logo {
+        font-size: 1.5rem;
+      }
+      
+      .hero-left h2 {
+        font-size: 1.8rem;
+      }
+      
+      .btn-container {
+        flex-direction: column;
+      }
+
+      .view {
+        margin-bottom: 7px;
+      }
+      
+      .profile-pic {
+        width: 220px;
+        height: 320px;
+      }
+      
+      .filters {
+        flex-direction: column;
+      }
+      
+      .todo-input {
+        flex-direction: column;
+      }
+
+      select {
+        width: 260px;
+      }
+
+      select option {
+        font-size: 15px;
+        font-weight: 450;
+      }
+
+    }
+    /* Certificate PDF iframe style */
+
+    .certificate-pdf {
+      width: 100%;
+      height: 220px;
+      border: none;
+     }
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1 id="logo"><a href="#home">Aman's Portfolio</a></h1>
+    <button class="menu-toggle">☰</button>
+    <nav id="navbar">
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#certificate">Certificates</a>
+      <a href="#todo">To-Do</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+      <div class="hero-left">
+        <h2>Hello, I'm <span style="color: #229894;">Aman Kushwaha</span> 👋</h2>
+       
+        <p> I am a BCA (3<sup>rd</sup> Year) student and an aspiring <strong>Full Stack Engineer</strong> driven by curiosity for <strong>App Development</strong> and <strong>Artificial Intelligence</strong>. I enjoy creating seamless, modern web experiences and exploring innovative technologies that shape the digital future. </p>
+
+        <div class="btn-container">
+          <button class="know-more-btn" onclick="scrollToSection('#about')">Know More</button>
+          <a id="dwn-rsm" href="https://raw.githubusercontent.com/Amankushwaha121/Resume/main/Aman-Software%20Engineer%20Ats85%20upadated.pdf" download class="download-btn">
+          <i class="fa-solid fa-download"></i>
+          Download Resume 
+          </a>
+
+        </div>
+        
+        <div class="social-icons">
+          <a href="https://github.com/Amankushwaha121" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/aman-kushwaha-6a8b102a7/" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://discord.com/channels/1437359689565474818/1437359691591188573" target="_blank"><i class="fab fa-discord"></i></a>
+          <a href="https://x.com/AmanKushwahaG" target="_blank"><i class="fa-brands fa-square-x-twitter"></i></a>
+          <a href="https://www.youtube.com/channel/UCuDoD01NfkqR0EvpTi2Oc1w" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+          
+        </div>
+      </div>
+      
+      <div class="hero-right">
+        <div class="profile-pic">
+        
+          <img src="images/port-img.jpg" alt="Aman's Photo" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+      <h2 class="section-title">About Me</h2>
+      <div style="max-width: 800px; text-align: center; color: #333; font-size: 1.1rem; line-height: 1.6 ;">
+
+        <br>I am a passionate and dedicated Full Stack Engineer currently pursuing a Bachelor of Computer Applications (BCA). With strong expertise in web development, I specialize in building clean, responsive, and user-friendly applications using HTML, CSS, JavaScript, React, Java, and Spring Boot.<br><br>
+
+         Alongside web technologies, I am also learning mobile app development to expand my skills across platforms. I have a growing interest in Artificial Intelligence (AI) and aim to integrate intelligent solutions into modern web and app ecosystems.<br><br>
+
+         Driven by curiosity and continuous learning, I focus on writing efficient code, crafting seamless user experiences, and staying updated with the latest advancements in technology. My long-term goal is to become a skilled developer bridging web, mobile, and AI innovations. 
+          <br><br><b>Let's connect and create impactful digital experiences together!</b>
+
+        </b>
+
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Skills Section -->
+    <section class="section" id="skills">
+      <h2 class="section-title">My Skills</h2>
+      <div class="skills-container">
+        <div class="skill-box all-bg">
+          <i class="fab fa-html5" style="color: #E34F26;"></i>
+          <h3>HTML5</h3>
+        </div>
+        <div class="skill-box all-bg">
+          <i class="fab fa-css3-alt" style="color: #1572B6;"></i>
+          <h3>CSS3</h3>
+        </div>
+        <div class="skill-box all-bg">
+          <i class="fab fa-js" style="color: #F7DF1E;"></i>
+          <h3>JavaScript</h3>
+        </div>
+        <div class="skill-box all-bg">
+          <i class="fab fa-bootstrap" style="color: #7952B3;"></i>
+          <h3>Tailwind</h3>
+        </div>
+        <div class="skill-box all-bg">
+          <i class="fab fa-react" style="color: #7952B3;"></i>
+          <h3>React-JS</h3>
+        </div>
+
+        <div class="skill-box all-bg">
+          <i class="fab fa-java" style="color: #f89820; font-size: 3rem;"></i>
+          <h3>Java</h3>
+        </div>
+
+        <div class="skill-box all-bg">
+          <i class="fa-solid fa-power-off" style="color: #307c21;"></i>
+  
+          <h3>spring Boot</h3>
+        </div>
+        
+        <div class="skill-box all-bg">
+          <i class="fas fa-cogs" style="color: #00599C;"></i>
+          <h3>DSA Using Java</h3>
+        </div>
+        <div class="skill-box all-bg">
+          <i class="fas fa-database" style="color: #00758F;"></i>
+          <h3>DBMS</h3>
+        </div>
+         <div class="skill-box all-bg">
+          <i class="fas fa-server" style="color: #00758F;"></i>
+          <h3>MySQL</h3>
+        </div>
+        <div class="skill-box all-bg">
+          <i class="fas fa-leaf" style="color: #24b83a;"></i>
+          <h3>MongoDB</h3>
+        </div>
+        <div class="skill-box all-bg">
+          <i class="fab fa-git-alt" style="color: #F05032;"></i>
+          <h3>Git</h3>
+        </div>
+        
+        <div class="skill-box all-bg">
+          <i class="fab fa-github" style="color: #333; font-size: 2rem;"></i>
+          <h3>GitHub</h3>
+        </div>
+
+        <div class="skill-box all-bg">
+          <i class="fab fa-python" style="color: #0452b1; font-size: 2rem;"></i>
+          <h3>Python</h3>
+        </div>
+
+        <div class="skill-box all-bg">
+          <i class="fas fa-code" style="color: #00599C;"></i>
+          <!-- <i class="fa-brands fa-flutter" style="color: #0e5bba;" ></i>  -->
+          <h3>Flutter</h3>
+        </div>
+
+        <div class="skill-box all-bg">
+          <i class="fas fa-code" style="color: #00599C;"></i>
+          <h3>C / C++</h3>
+        </div>
+        
+      
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- Certificates Section -->
+    <section class="certificate-section" id="certificate">
+      <h2 class="section-title">My Certificates</h2>
+      <div class="certificate-gallery">
+        <!-- Certificate 1 -->
+        <div class="certificate">
+           <iframe
+              src="https://docs.google.com/gview?embedded=true&url=https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/Aman%20kushwaha.pdf"
+              class="certificate-pdf">
+            </iframe>
+          <div class="certificate-info all-bg">
+            <div class="certificate-title">Internship in Full Stack Web Development</div>
+            <p>Company: Main Flow </p>
+            <div class="certificate-date">Issued: Aug 25, 2025</div>
+            <a href="https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/Aman%20kushwaha.pdf" download="pdf" class="view-btn download-btn"><i class="fa-solid fa-download"></i> Download Certificate</a>
+          </div>
+        </div>
+        
+        <!-- Certificate 2 -->
+        <div class="certificate">
+           <iframe
+              src="https://docs.google.com/gview?embedded=true&url=https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/AMAN-KUMAR-Participant-Certificate.pdf" class="certificate-pdf">
+            </iframe>
+          <div class="certificate-info all-bg">
+            <div class="certificate-title">Spoken Tutorial Project at IIT Bombay </div>
+            <p>Company: IIT Bombay</p>
+            <div class="certificate-date">Issued:Nov 30th 2024 </div>
+            <a href="https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/AMAN-KUMAR-Participant-Certificate.pdf" download="pdf" class="view-btn download-btn"><i class="fa-solid fa-download"></i> Download Certificate</a>
+          </div>
+        </div>
+        
+        <!-- Certificate 3 -->
+       <div class="certificate">
+           <iframe
+              src="https://docs.google.com/gview?embedded=true&url=https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/Accenture_SoftwareEngineering_JobSemutation_completion_certificate.pdf" class="certificate-pdf">
+            </iframe>
+          <div class="certificate-info all-bg">
+            <div class="certificate-title">Softwre Engineering Job Simulation </div>
+           <p>Company: Accenture</p>
+            <div class="certificate-date">Issued:jun 24th 2025 </div>
+            <a href="https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/Accenture_SoftwareEngineering_JobSemutation_completion_certificate.pdf" download="pdf" class="view-btn download-btn"><i class="fa-solid fa-download"></i> Download Certificate</a>
+          </div>
+        </div>
+        
+        
+        <!-- Certificate 4 -->
+       <div class="certificate">
+           <iframe
+              src="https://docs.google.com/gview?embedded=true&url=https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/AmanADCACertificate.pdf" class="certificate-pdf">
+            </iframe>
+          <div class="certificate-info all-bg">
+            <div class="certificate-title">Advance Diploma in Computer Application (ADCA) </div>
+            <p>Company: Aryabhatt Computer & IT</p>
+            <div class="certificate-date">Issued: July 2023</div>
+            <a href="https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/AmanADCACertificate.pdf" download="pdf" class="view-btn download-btn"><i class="fa-solid fa-download"></i> Download Certificate</a>
+          </div>
+        </div>
+        
+        <!-- Certificate 5 -->
+        <div class="certificate">
+           <iframe
+              src="https://docs.google.com/gview?embedded=true&url=https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/AgileScrumInfosys.pdf" class="certificate-pdf">
+            </iframe>
+          <div class="certificate-info all-bg">
+            <div class="certificate-title">Agile Scrum in Practice </div>
+            <p>Company: Infosys</p>
+            <div class="certificate-date">Issued:Jun 17th 2025 </div>
+            <a href="https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/AgileScrumInfosys.pdf" download="pdf" class="view-btn download-btn"><i class="fa-solid fa-download"></i> Download Certificate</a>
+          </div>
+        </div>
+        
+        <!-- Certificate 6 -->
+        <div class="certificate">
+           <iframe
+              src="https://docs.google.com/gview?embedded=true&url=https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/DB%20Infosys.pdf" class="certificate-pdf">
+            </iframe>
+          <div class="certificate-info all-bg">
+            <div class="certificate-title">Database Management System - Science Graduates</div>
+            <p>Company: Infosys </p>
+            <div class="certificate-date">Issued: Aug 8, 2025</div>
+            <a href="https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/DB%20Infosys.pdf" download="pdf" class="view-btn download-btn"><i class="fa-solid fa-download"></i> Download Certificate</a>
+          </div>
+        </div>
+
+         <!-- Certificate 7 -->
+        <div class="certificate">
+           <iframe
+              src="https://docs.google.com/gview?embedded=true&url=https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/DBMSCertificateInfosys1.pdf" class="certificate-pdf">
+            </iframe>
+          <div class="certificate-info all-bg">
+            <div class="certificate-title">Database Mangement System Part -1</div>
+            <p>Company: Infosys</p>
+            <div class="certificate-date">Issued:  Jun 20, 2025</div>
+            <a href="https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/DBMSCertificateInfosys1.pdf" download="pdf" class="view-btn download-btn"><i class="fa-solid fa-download"></i> Download Certificate</a>
+          </div>
+        </div>
+
+         <!-- Certificate 8 -->
+        <div class="certificate">
+           <iframe
+              src="https://docs.google.com/gview?embedded=true&url=https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/DBMSCertificateInfosys2.pdf" class="certificate-pdf">
+            </iframe>
+          <div class="certificate-info all-bg">
+            <div class="certificate-title">Database Mangement System Part -2</div>
+            <p>Company: Infosys</p>
+            <div class="certificate-date">Issued: Jun 20, 2025</div>
+            <a href="https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/DBMSCertificateInfosys2.pdf" download="pdf" class="view-btn download-btn"><i class="fa-solid fa-download"></i> Download Certificate</a>
+          </div>
+        </div>
+         <!-- Certificate 9 -->
+        <div class="certificate">
+           <iframe
+              src="https://docs.google.com/gview?embedded=true&url=https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/Data%20Structures%20and%20Algorithms%20using%20Java%20Infosys.pdf" class="certificate-pdf">
+            </iframe>
+          <div class="certificate-info all-bg">
+            <div class="certificate-title">Data Structures and Algorithms using Java</div>
+            <p>Company: Infosys</p>
+            <div class="certificate-date">Issued: Jun 21, 2025</div>
+            <a href="https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/Data%20Structures%20and%20Algorithms%20using%20Java%20Infosys.pdf" download="pdf" class="view-btn download-btn"><i class="fa-solid fa-download"></i> Download Certificate</a>
+          </div>
+        </div>
+         <!-- Certificate 10 -->
+        <div class="certificate">
+           <iframe
+              src="https://docs.google.com/gview?embedded=true&url=https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/Deloite_Technology_completion_certificate.pdf" class="certificate-pdf">
+            </iframe>
+          <div class="certificate-info all-bg">
+            <div class="certificate-title">Technology Job Simulation</div>
+            <p>Company: Deloitte</p>
+            <div class="certificate-date">Issued: Jun 30th, 2025</div>
+            <a href="https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/Deloite_Technology_completion_certificate.pdf" download="pdf" class="view-btn download-btn"><i class="fa-solid fa-download"></i> Download Certificate</a>
+          </div>
+        </div>
+         <!-- Certificate 11 -->
+        <div class="certificate">
+           <iframe
+              src="https://docs.google.com/gview?embedded=true&url=https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/Deloitte_DataAnalist_certificate.pdf" class="certificate-pdf">
+            </iframe>
+          <div class="certificate-info all-bg">
+            <div class="certificate-title"> Data Analytics Job Simulation</div>
+            <p>Company: Delloite</p>
+            <div class="certificate-date">Issued: Jun 30th, 2025</div>
+            <a href="https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/Deloitte_DataAnalist_certificate.pdf" download="pdf" class="view-btn download-btn"><i class="fa-solid fa-download"></i> Download Certificate</a>
+          </div>
+        </div>
+         <!-- Certificate 12 -->
+        <div class="certificate">
+           <iframe
+              src="https://docs.google.com/gview?embedded=true&url=https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/EmailCertificateInfosys.pdf" class="certificate-pdf">
+            </iframe>
+          <div class="certificate-info all-bg">
+            <div class="certificate-title">Email writing Skills </div>
+            <p>Company: Infosys</p>
+            <div class="certificate-date">Issued: Jun 6, 2025</div>
+            <a href="https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/EmailCertificateInfosys.pdf" download="pdf" class="view-btn download-btn"><i class="fa-solid fa-download"></i> Download Certificate</a>
+          </div>
+        </div>
+         <!-- Certificate 13 -->
+        <div class="certificate">
+           <iframe
+              src="https://docs.google.com/gview?embedded=true&url=https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/IntroducingNoSqlInfosys.pdf " class="certificate-pdf">
+            </iframe>
+          <div class="certificate-info all-bg">
+            <div class="certificate-title">Introducing to NoSQL Databases</div>
+            <p>Company: Infosys</p>
+            <div class="certificate-date">Issued: Jun 17, 2025</div>
+            <a href="https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/IntroducingNoSqlInfosys.pdf" download="pdf" class="view-btn download-btn"><i class="fa-solid fa-download"></i> Download Certificate</a>
+          </div>
+        </div>
+         <!-- Certificate 14 -->
+        <div class="certificate">
+           <iframe
+              src="https://docs.google.com/gview?embedded=true&url=https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/GoldManShachs_certificate.pdf " class="certificate-pdf">
+            </iframe>
+          <div class="certificate-info all-bg">
+            <div class="certificate-title">Operations Job Simulaation</div>
+            <p>Company: Goldman Sachs</p>
+            <div class="certificate-date">Issued: Jun 29th, 2025</div>
+            <a href="https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/GoldManShachs_certificate.pdf" download="pdf" class="view-btn download-btn"><i class="fa-solid fa-download"></i> Download Certificate</a>
+          </div>
+        </div>
+       <!-- Certificate 15 -->
+        <div class="certificate">
+           <iframe
+              src="https://docs.google.com/gview?embedded=true&url=https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/JAVAFAUNDATIONCERTIFICATE.pdf" class="certificate-pdf">
+            </iframe>
+          <div class="certificate-info all-bg">
+            <div class="certificate-title">Java foundation Certification</div>
+            <p>Company: Infosys</p>
+            <div class="certificate-date">Issued: July 7, 2025</div>
+            <a href="https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/JAVAFAUNDATIONCERTIFICATE.pdf" download="pdf" class="view-btn download-btn"><i class="fa-solid fa-download"></i> Download Certificate</a>
+          </div>
+        </div>
+         <!-- Certificate 16 -->
+        <div class="certificate">
+           <iframe
+              src="https://docs.google.com/gview?embedded=true&url=https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/HighImpactOfPresentationCertificateInfosys.pdf " class="certificate-pdf">
+            </iframe>
+          <div class="certificate-info all-bg">
+            <div class="certificate-title">High Impact Of Presentation</div>
+            <p>Company: Infosys</p>
+            <div class="certificate-date">Issued: Jun 7, 2025</div>
+            <a href="https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/HighImpactOfPresentationCertificateInfosys.pdf" download="pdf" class="view-btn download-btn"><i class="fa-solid fa-download"></i> Download Certificate</a>
+          </div>
+        </div>
+         <!-- Certificate 17 -->
+        <div class="certificate">
+           <iframe
+              src="https://docs.google.com/gview?embedded=true&url=https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/Programming%20using%20Java.pdf" class="certificate-pdf">
+            </iframe>
+          <div class="certificate-info all-bg">
+            <div class="certificate-title">Programming Using Java</div>
+            <p>Company: Infosys</p>
+            <div class="certificate-date">Issued: Jun 20, 2025</div>
+            <a href="https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/Programming%20using%20Java.pdf" download="pdf" class="view-btn download-btn"><i class="fa-solid fa-download"></i> Download Certificate</a>
+          </div>
+        </div>
+         <!-- Certificate 18 -->
+        <div class="certificate">
+           <iframe
+              src="https://docs.google.com/gview?embedded=true&url=https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/SEAgileCertificate.pdf" class="certificate-pdf">
+            </iframe>
+          <div class="certificate-info all-bg">
+            <div class="certificate-title">SE and Agile Software Development </div>
+            <p>Company: Infosys</p>
+            <div class="certificate-date">Issued: Jun 7, 2025</div>
+            <a href="https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/SEAgileCertificate.pdf" download="pdf" class="view-btn download-btn"><i class="fa-solid fa-download"></i> Download Certificate</a>
+          </div>
+        </div>
+        <!-- Certificate 19 -->
+        <div class="certificate">
+           <iframe
+              src="https://docs.google.com/gview?embedded=true&url=https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/TATAGENAI_certificate.pdf" class="certificate-pdf">
+            </iframe>
+          <div class="certificate-info all-bg">
+            <div class="certificate-title">GenAI Powered Data Analytics Job Simulation</div>
+            <p>Company: Tata</p>
+            <div class="certificate-date">Issued: Jun 29, 2025</div>
+            <a href="https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/TATAGENAI_certificate.pdf" download="pdf" class="view-btn download-btn"><i class="fa-solid fa-download"></i> Download Certificate</a>
+          </div>
+        </div>
+        <!-- Certificate 20 -->
+        <div class="certificate">
+           <iframe
+              src="https://docs.google.com/gview?embedded=true&url=https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/TimeManagementByInfosysCertificate.pdf " class="certificate-pdf">
+            </iframe>
+          <div class="certificate-info all-bg">
+            <div class="certificate-title">Time Management</div>
+            <p>Company: Infosys</p>
+            <div class="certificate-date">Issued: Jun 6, 2025</div>
+            <a href="https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/TimeManagementByInfosysCertificate.pdf" download="pdf" class="view-btn download-btn"><i class="fa-solid fa-download"></i> Download Certificate</a>
+          </div>
+        </div>
+        <!-- Certificate 21 -->
+        <div class="certificate">
+           <iframe
+              src="https://docs.google.com/gview?embedded=true&url=https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/introduction%20to%20Agile%20MethodologyInfosys.pdf" class="certificate-pdf">
+            </iframe>
+          <div class="certificate-info all-bg">
+            <div class="certificate-title">Introduction to Agile methodology </div>
+            <p>Company: Infosys</p>
+            <div class="certificate-date">Issued: Oct 9, 2025</div>
+            <a href="https://raw.githubusercontent.com/Amankushwaha121/CertificateAll/main/introduction%20to%20Agile%20MethodologyInfosys.pdf" download="pdf" class="view-btn download-btn"><i class="fa-solid fa-download"></i> Download Certificate</a>
+          </div>
+        </div>
+        <!-- Certificate 22 -->
+        <!-- <div class="certificate">
+           <iframe
+              src="https://docs.google.com/gview?embedded=true&url= ">
+            </iframe>
+          <div class="certificate-info all-bg">
+            <div class="certificate-title"> </div>
+            <p>Company: </p>
+            <div class="certificate-date">Issued: </div>
+            <a href=" " download="pdf" class="view-btn download-btn"><i class="fa-solid fa-download"></i> Download Certificate</a>
+          </div>
+        </div> -->
+
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- To-Do Section -->
+    <section class="section" id="todo">
+      <h2 class="section-title">📜 To-Do List</h2>
+      <div class="todo-container all-bg">
+        <div class="todo-input">
+          <input type="text" id="taskInput" placeholder="Enter a task...">
+          <button id="addTaskBtn">Add</button>
+        </div>
+        <ul id="taskList" class="todo-list"></ul>
+      </div>
+
+    </section>
+
+    <div class="divider"></div>
+
+      <section class="section" id="contact">
+        <h2 class="section-title">☎️ Contact Me</h2>
+
+        <p>Feel free to reach out for collaborations, projects, or just to say hello!</p><br>
+        <p>I’m always open to exciting collaborations, freelance projects, or  just a friendly tech chat.  
+          Feel free to drop me a message — I’d love to connect!
+          </p>
+        
+        <br><br>
+
+        <div class="contact-links">
+            <a href="mailto:amankumar210405@gmail.com" target="_blank" class="contact-btn email-btn">
+              <i class="fas fa-envelope"></i> Email Me
+            </a>
+            <a href="https://www.linkedin.com/in/aman-kushwaha-6a8b102a7/" target="_blank" class="contact-btn linkedin-btn">
+              <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://github.com/amankushwaha121" target="_blank" class="contact-btn github-btn">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://twitter.com/AmanKushwahaG" target="_blank" class="contact-btn twitter-btn">
+              <i class="fab fa-twitter"></i> Twitter
+            </a>
+        </div>
+    </section>
+      
+
+  </main>
+
+  <footer>
+    <p>© 2025 AmanKushwaha's Portfolio. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // MOBILE MENU TOGGLE 
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navbar = document.getElementById('navbar');
+    
+    menuToggle.addEventListener('click', () => {
+      navbar.classList.toggle('active');
+      menuToggle.textContent = navbar.classList.contains('active') ? '✖' : '☰';
+    });
+    
+    // Close menu when clicking on links (mobile)
+    document.querySelectorAll('nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+          navbar.classList.remove('active');
+          menuToggle.textContent = '☰';
+        }
+      });
+    });
+    
+    // SMOOTH SCROLLING 
+    function scrollToSection(sectionId) {
+      document.querySelector(sectionId).scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+    
+    // TO-DO LIST 
+    const taskInput = document.getElementById('taskInput');
+    const addTaskBtn = document.getElementById('addTaskBtn');
+    const taskList = document.getElementById('taskList');
+    
+    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    
+    function renderTasks() {
+      taskList.innerHTML = '';
+      
+      tasks.forEach((task, index) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <span>${task}</span>
+          <button onclick="deleteTask(${index})">Delete</button>
+        `;
+        taskList.appendChild(li);
+      });
+    }
+    
+    function addTask() {
+      const taskText = taskInput.value.trim();
+      if (taskText) {
+        tasks.push(taskText);
+        taskInput.value = '';
+        saveTasks();
+        renderTasks();
+      }
+    }
+    
+    function deleteTask(index) {
+      tasks.splice(index, 1);
+      saveTasks();
+      renderTasks();
+    }
+    
+    function saveTasks() {
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+    
+    addTaskBtn.addEventListener('click', addTask);
+    taskInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        addTask();
+      }
+    }); 
+    // certificate view button functionality
+    /* document.addEventListener("DOMContentLoaded", function () {
+      const buttons = document.querySelectorAll(".view-btn");
+      buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const cert = btn.closest(".certificate");
+          const pdfURL = cert.getAttribute("data-pdf");
+          if (!pdfURL) return alert("No PDF found for this certificate!");
+
+          // Force open in a new tab using Google’s PDF viewer (bypasses GitHub’s auto-download)
+          const viewerURL = `https://docs.google.com/gview?embedded=true&url=${encodeURIComponent(pdfURL)}`;
+          window.open(viewerURL, "_blank");
+        });
+      });
+    }); */
+
+    // INITIALIZE 
+    renderTasks();
+
+  </script>
+</body>
+</html>
